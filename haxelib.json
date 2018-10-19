@@ -1,0 +1,13 @@
+{
+  "name": "seedyrng",
+  "url" : "https://github.com/chfoo/seedyrng/",
+  "license": "MIT",
+  "tags": ["cross", "rng", "random"],
+  "description": "Pseudorandom number generator library",
+  "version": "0.1.0",
+  "classPath": "src/",
+  "releasenote": "First release",
+  "contributors": ["chfoo"],
+  "dependencies": {
+  }
+}

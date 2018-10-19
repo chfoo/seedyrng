@@ -1,0 +1,14 @@
+language: haxe
+
+haxe:
+  - stable
+
+install:
+  - yes | haxelib install test.hxml
+
+script:
+  - haxe hxml/test.neko.hxml
+  - haxe hxml/test.cpp.hxml
+  - haxe hxml/test.js.hxml
+  - neko out/neko/test.n
+  - out/cpp/TestAll-debug

@@ -1,0 +1,9 @@
+-cp src/
+-xml out/xml/doc.xml
+-D doc-gen
+--macro include('seedyrng')
+--no-output
+-neko out/dummy.n
+
+--next
+-cmd haxelib run dox -i out/xml/ -o out/docs/ --include "seedyrng" --title "SeedyRNG API Documentation"
