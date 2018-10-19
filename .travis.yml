@@ -5,6 +5,7 @@ haxe:
 
 install:
   - yes | haxelib install test.hxml
+  - yes | haxelib install hxcpp
 
 script:
   - haxe hxml/test.neko.hxml

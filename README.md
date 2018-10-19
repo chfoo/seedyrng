@@ -40,7 +40,7 @@ If you want to use another generator, you can specify it on the constructor:
 var random = new Random(new GaloisLFSR32());
 ```
 
-For details on all the methods, see the [API documentation](https://chfoo.github.io/seedy/api/).
+For details on all the methods, see the [API documentation](https://chfoo.github.io/seedyrng/api/).
 
 Randomness testing
 ------------------
