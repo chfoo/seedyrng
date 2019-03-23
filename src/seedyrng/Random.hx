@@ -38,39 +38,24 @@ class Random implements GeneratorInterface {
     /**
         Returns a (non-secure) random integer from the system.
 
-        This method can be used construct and obtain a seed.
+        This method can be used construct and obtain a seed. Unlike
+        regular `Sys.random`, all bits are usable.
+
+        For high-quality (cryptographic) random numbers, see the
+        trandom library (https://lib.haxe.org/p/trandom).
     **/
     public static function randomSystemInt():Int {
-        // For simplicity, we use random sources if there is an API
-        // for in in standard library.
-        #if js
-        var buffer = new js.html.Int32Array(1);
-        try {
-            js.Browser.window.crypto.getRandomValues(buffer);
-            return buffer[0];
-        } catch (exception:Dynamic) {
-            // continue
-        }
-        #end
+        // There used to be target specific code here, but it's best to put it
+        // into the 'trandom' library.
 
-        // Otherwise, fallback to Std.random.
-        // The standard library does not guarantee any quality of the source
-        // on various targets and platforms so we sacrifice some CPU time
-        // to add a few bits of entropy.
-        var buffer = new BytesBuffer();
+        // Ensures all bits are filled
+        var value =
+            (Std.random(0xff) << 24) |
+            (Std.random(0xff) << 16) |
+            (Std.random(0xff) << 8) |
+            Std.random(0xff);
 
-        for (dummy in 0...100) {
-            buffer.addByte(Std.random(0xff));
-            buffer.addDouble(Date.now().getTime());
-            #if sys
-            buffer.addDouble(Sys.time());
-            Sys.sleep(0.001);
-            #end
-        }
-
-        var hash = Sha1.make(buffer.getBytes());
-
-        return hash.getInt32(0);
+        return value;
     }
 
     function get_seed():Int64 {
