@@ -1,6 +1,13 @@
 Change log
 ==========
 
+1.0.0 (unreleased)
+------------------
+
+* Changed `randomSystemInt()` implementation to remove target specific code.
+  Use the trandom library for high quality random numbers.
+* Bumped version to 1.0 to indicate API is stable.
+
 0.1.0 (2018-10-19)
 ------------------
 

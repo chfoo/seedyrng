@@ -4,9 +4,9 @@
   "license": "MIT",
   "tags": ["cross", "rng", "random"],
   "description": "Pseudorandom number generator library",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "classPath": "src/",
-  "releasenote": "First release",
+  "releasenote": "API considered stable (see changelog)",
   "contributors": ["chfoo"],
   "dependencies": {
   }

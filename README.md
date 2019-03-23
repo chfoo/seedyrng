@@ -7,16 +7,18 @@ Seedy is intended for generating numbers for applications that require reproduci
 
 It provides a general featured interface such as producing an integer within a range or choosing an item from an array. It also allows you to use your own generator implementation if you desire.
 
-Seedy is deterministic or predictable which means it is *not* suitable for secure cryptographic purposes.
+Seedy is deterministic or predictable which means it is *not* suitable for secure cryptographic purposes. (You may be interested in the [trandom library](https://lib.haxe.org/p/trandom) which provides an API to the OS cryptographic random number generator.)
 
 Quick start
 -----------
+
+Requires Haxe 3 or 4.
 
 Install it from Haxelib:
 
     haxelib install seedyrng
 
-To install the latest using `haxelib git`.
+(To install the latest from the git repository, use `haxelib git`.)
 
 If you simply need a random integer:
 
