@@ -54,3 +54,8 @@ If you desire, you can statistically test the generator using something like:
 Alternatively, you can [inspect a visualization](https://unix.stackexchange.com/a/289670) of the output:
 
     export X=1000 Y=1000; haxe hxml/app.cpp.hxml && out/cpp/Seedy | head -c "$((3*X*Y))" | display -depth 8 -size "${X}x${Y}" RGB:-
+
+Contributing
+------------
+
+Please file bug reports, features, or pull requests using the repo's GitHub Issues.
