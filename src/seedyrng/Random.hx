@@ -122,6 +122,8 @@ class Random implements GeneratorInterface {
     /**
         Returns a floating point number in the range [0, 1), That is, a number
         greater or equal to 0 and less than 1.
+
+        The distribution is approximately uniform.
     **/
     public function random():Float {
         // Implementation based on https://crypto.stackexchange.com/a/31659
@@ -137,6 +139,10 @@ class Random implements GeneratorInterface {
     /**
         Returns an integer within the given range [`lower`, `upper`]. That is,
         a number within `lower` inclusive and `upper` inclusive.
+
+        This method uses `random()` which the distribution approximately
+        uniform. For large ranges greater than 2^53, the distribution will
+        be noticeably biased.
     **/
     public function randomInt(lower:Int, upper:Int):Int {
         // randomInt and uniform implementation based on
@@ -165,6 +171,11 @@ class Random implements GeneratorInterface {
 
     /**
         Shuffles the elements, in-place, in the given array.
+
+        The shuffle algorithm is modern Fisher-Yates. The underlying number
+        generator limits the number of permutations possible.
+        This means that using this method alone to shuffle a deck of 52 cards
+        will not result in all possible outcomes.
     **/
     public function shuffle<T>(array:Array<T>) {
         // Implementation https://en.wikipedia.org/w/index.php?title=Fisher%E2%80%93Yates_shuffle&oldid=864477677
