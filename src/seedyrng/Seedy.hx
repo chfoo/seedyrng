@@ -40,6 +40,8 @@ class Seedy {
                 generator = new GaloisLFSR32();
             case "xorshift128+":
                 generator = new Xorshift128Plus();
+            case "xorshift64+":
+                generator = new Xorshift64Plus();
             default:
                 throw "Unknown generator name";
         }

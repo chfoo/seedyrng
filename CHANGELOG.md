@@ -1,6 +1,13 @@
 Change log
 ==========
 
+Unreleased
+----------
+
+* Added `Xorshift64Plus`. The default `Xorshift128Plus` uses `haxe.Int64`
+  in the implementation which can be very slow on targets without 64-bit
+  integers.
+
 1.0.0 (2019-03-23)
 ------------------
 

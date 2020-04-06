@@ -9,6 +9,9 @@ import haxe.io.Bytes;
 
     This is a very fast and high quality pseudorandom number generator.
     It is a variant of the xorshift algorithm that is closely related to LFSRs.
+
+    On targets without 64-bit integers, the usage of haxe.Int64 may be very
+    slow. If this is a concern, use `Xorshift64Plus`.
 **/
 class Xorshift128Plus implements GeneratorInterface {
     public var seed(get, set):Int64;
@@ -34,6 +37,7 @@ class Xorshift128Plus implements GeneratorInterface {
     }
 
     function get_usesAllBits():Bool {
+        // false because weakness in the lower bits
         return false;
     }
 

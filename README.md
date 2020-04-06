@@ -7,7 +7,7 @@ Seedy is intended for generating numbers for applications that require reproduci
 
 It provides a general featured interface such as producing an integer within a range or choosing an item from an array. It also allows you to use your own generator implementation if you desire.
 
-Seedy is deterministic or predictable which means it is *not* suitable for secure cryptographic purposes. (You may be interested in the [trandom library](https://lib.haxe.org/p/trandom) which provides an API to the OS cryptographic random number generator.)
+Seedy is deterministic or predictable which means it is *not* suitable for secure cryptographic purposes. (You may be interested in the [trandom library](https://lib.haxe.org/p/trandom) or a libsodium binding which provides an API to the OS cryptographic random number generator.)
 
 Quick start
 -----------
@@ -40,7 +40,11 @@ If you want to use another generator, you can specify it on the constructor:
 
 ```haxe
 var random = new Random(new GaloisLFSR32());
+// or
+var random = new Random(new Xorshift64Plus());
 ```
+
+The included `Xorshift128Plus` generator may be very slow on targets withouts without 64-bit integers. For a generator that is fast on all targets, it is recommended to use `Xorshift64Plus` instead.
 
 For details on all the methods, see the [API documentation](https://chfoo.github.io/seedyrng/api/).
 
@@ -49,7 +53,7 @@ Randomness testing
 
 If you desire, you can statistically test the generator using something like:
 
-    haxe hxml/app.cpp.hxml && out/cpp/Seedy | diehard -g 200 -a
+    haxe hxml/app.cpp.hxml && out/cpp/Seedy | dieharder -g 200 -a
 
 Alternatively, you can [inspect a visualization](https://unix.stackexchange.com/a/289670) of the output:
 
