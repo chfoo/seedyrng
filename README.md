@@ -44,7 +44,7 @@ var random = new Random(new GaloisLFSR32());
 var random = new Random(new Xorshift64Plus());
 ```
 
-The included `Xorshift128Plus` generator may be very slow on targets withouts without 64-bit integers. For a generator that is fast on all targets, it is recommended to use `Xorshift64Plus` instead.
+The included `Xorshift128Plus` generator may be very slow on targets withouts 64-bit integers. For a generator that is fast on all targets, it is recommended to use `Xorshift64Plus` instead.
 
 For details on all the methods, see the [API documentation](https://chfoo.github.io/seedyrng/api/).
 
